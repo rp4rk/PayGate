@@ -105,6 +105,16 @@ class PayButton extends Component {
     }
   }
 
+  // Title case
+  toTitleCase = function(str) {
+    return str.replace(/\w\S*/g, function(txt){return txt.charAt(0).toUpperCase() + txt.substr(1).toLowerCase();});
+  };
+
+  // Handle Titles
+  componentDidMount() {
+    document.title = this.toTitleCase(`Paygate - ${this.state.interval} payment`);
+  }
+
   // Render component
   render() {
     return (
