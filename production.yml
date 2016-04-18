@@ -2,4 +2,6 @@ api:
   build: .
   environment:
     PRODUCTION: 'true'
+https:
+  environment:
     STAGE: 'production'
