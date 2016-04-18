@@ -1,0 +1,16 @@
+api:
+  build: .
+  expose:
+    - 3000
+  volumes:
+    - ./api:/api
+  env_file: .env
+view:
+  image: nginx
+  volumes:
+    - ./config/nginx-view.conf:/etc/nginx/nginx.conf
+    - ./view:/var/www/paygate/
+  ports:
+    - 80:80
+  links:
+    - api:apiserver

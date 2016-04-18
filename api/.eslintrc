@@ -1,0 +1,12 @@
+{
+    "extends": "airbnb/base",
+    "no-unused-vars": false,
+    "globals": {
+      "Vue": true,
+      "Stripe": true,
+      "window": true,
+      "jQuery": true,
+      "$": true,
+      "publicKey": true,
+    }
+}
