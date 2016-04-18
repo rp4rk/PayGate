@@ -17,10 +17,13 @@ view:
     - api:apiserver
 https:
   image: steveltn/https-portal
+  volumes:
+    - ./config/default.ssl.conf.erb:/var/lib/nginx-conf/pay.ryanpark.co.uk.ssl.conf.erb:ro
   ports:
     - 80:80
     - 443:443
   links:
     - view
   environment:
+    - "GZIP=on"
     - "DOMAINS=pay.ryanpark.co.uk -> http://view:8080"
