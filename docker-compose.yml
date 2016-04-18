@@ -10,7 +10,16 @@ view:
   volumes:
     - ./config/nginx-view.conf:/etc/nginx/nginx.conf
     - ./view:/var/www/paygate/
-  ports:
-    - 80:80
+  expose:
+    - 80
   links:
     - api:apiserver
+https:
+  image: steveltn/https-portal
+  ports:
+    - 80:80
+    - 443:443
+  links:
+    - view
+  environment:
+    - "DOMAINS=pay.ryanpark.co.uk -> http://view"

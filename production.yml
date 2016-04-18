@@ -2,3 +2,4 @@ api:
   build: .
   environment:
     PRODUCTION: 'true'
+    STAGE: 'production'
